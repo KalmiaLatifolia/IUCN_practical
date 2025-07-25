@@ -105,7 +105,7 @@ extract(treeCover, field, weights = TRUE, fun = mean, na.rm = TRUE) # 31.606 % t
 # 2. calculate the total biomass of the field ----------------------------------
 
 # how big is one pixel?
-AGBD_proj <- project(AGBD, "ESRI:54009")
+AGBD_proj <- project(AGBD, "ESRI:54009") # equal area projection
 pixel_area_ha <- prod(res(AGBD_proj)) / 10000 # 0.015 hectares
 
 # sum up the pixels
@@ -113,6 +113,9 @@ sum_of_pixels <- extract(AGBD, field, weights = TRUE, fun = sum, na.rm = TRUE)[2
 
 # divide sum by pixel size to get tons/hectare
 sum_of_pixels * pixel_area_ha # 266.8 tons of biomass
+
+
+
 
 
 
@@ -180,3 +183,8 @@ extract(AGBD, field, weights = TRUE, fun = sum, na.rm = TRUE)
 # is one pixel one hectare?
 AGBD_proj <- project(AGBD, "ESRI:54009")
 pixel_area_ha <- prod(res(AGBD_proj)) / 10000
+
+
+
+
+
